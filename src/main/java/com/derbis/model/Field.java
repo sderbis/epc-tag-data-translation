@@ -6,7 +6,7 @@
 //
 
 
-package com.derbis.schema;
+package com.derbis.model;
 
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;

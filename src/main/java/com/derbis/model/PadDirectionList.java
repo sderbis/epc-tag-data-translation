@@ -6,39 +6,39 @@
 //
 
 
-package com.derbis.schema;
+package com.derbis.model;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for ModeList.
+ * <p>Java class for PadDirectionList.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="ModeList"&gt;
+ * &lt;simpleType name="PadDirectionList"&gt;
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *     &lt;enumeration value="EXTRACT"/&gt;
- *     &lt;enumeration value="FORMAT"/&gt;
+ *     &lt;enumeration value="LEFT"/&gt;
+ *     &lt;enumeration value="RIGHT"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
  * 
  */
-@XmlType(name = "ModeList", namespace = "urn:epcglobal:tdt:xsd:1")
+@XmlType(name = "PadDirectionList", namespace = "urn:epcglobal:tdt:xsd:1")
 @XmlEnum
-public enum ModeList {
+public enum PadDirectionList {
 
-    EXTRACT,
-    FORMAT;
+    LEFT,
+    RIGHT;
 
     public String value() {
         return name();
     }
 
-    public static ModeList fromValue(String v) {
+    public static PadDirectionList fromValue(String v) {
         return valueOf(v);
     }
 

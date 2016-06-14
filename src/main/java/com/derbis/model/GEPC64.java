@@ -6,7 +6,7 @@
 //
 
 
-package com.derbis.schema;
+package com.derbis.model;
 
 import java.util.ArrayList;
 import java.util.List;

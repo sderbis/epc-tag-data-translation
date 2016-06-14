@@ -6,7 +6,7 @@
 //
 
 
-package com.derbis.schema;
+package com.derbis.model;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;

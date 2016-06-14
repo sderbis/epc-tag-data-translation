@@ -1,7 +1,9 @@
-package com.derbis.rules;
+package com.derbis.tdt;
 
-import com.derbis.schema.EpcTagDataTranslation;
+import com.derbis.model.EpcTagDataTranslation;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -14,22 +16,27 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class GS1RulesParser {
+public class GS1EpcTagDataTranslation {
+    private static final Logger LOG = LogManager.getLogger(GS1EpcTagDataTranslation.class);
 
     @Autowired
     XmlMapper xmlMapper;
 
-    public List<EpcTagDataTranslation> parse() {
+    public List<EpcTagDataTranslation> loadXMLResources() {
         List<EpcTagDataTranslation> epcTagDataTranslations = new ArrayList<>();
 
         try {
             Resource[] resources = getResources();
+            LOG.info("Found {} GS1 tag data translation xml files", resources.length);
 
             for (Resource resource : resources) {
-                epcTagDataTranslations.add(xmlMapper.readValue(resource.getInputStream(), EpcTagDataTranslation.class));
+                EpcTagDataTranslation epcTagDataTranslation =
+                        xmlMapper.readValue(resource.getInputStream(), EpcTagDataTranslation.class);
+                epcTagDataTranslations.add(epcTagDataTranslation);
+                LOG.info(" {}", resource.getFilename());
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error(e.getMessage(), e);
         }
 
         return epcTagDataTranslations;
@@ -45,7 +52,7 @@ public class GS1RulesParser {
                             .collect(Collectors
                                     .toList());
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error(e.getMessage(), e);
         }
 
         return schemas;

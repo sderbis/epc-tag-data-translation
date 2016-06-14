@@ -72,7 +72,7 @@
 	<!-- The prefixMatch attribute indicates a string that should always match at the start of the string representation for this level. This is used to enable auto-detection of different levels of representation -->
 	<!-- For binary representation, the value of the prefixMatch attribute is the binary header, usually expressed as an 8-character ASCII string of zeroes and ones -->
 	<!-- For URI representations, the value of the prefixMatch attribute is the URI prefix, such as urn:epc:id:sgtin:  or urn:epc:tag:sgtin-96: -->
-	<!-- The attribute 'requiredParsingParameters' is a comma-separated string list of any parameters that must be specified in order to successfully parse the input from this level, such as parameters required by rule elements of type 'EXTRACT' -->
+	<!-- The attribute 'requiredParsingParameters' is a comma-separated string list of any parameters that must be specified in order to successfully loadXMLResources the input from this level, such as parameters required by rule elements of type 'EXTRACT' -->
 	<!-- The attribute 'requiredFormattingParameters' is a comma-separated string list of any parameters that must be specified in order to successfully format the output at this level, such as parameters required by rule elements of type 'FORMAT' -->
 	<!-- Nested within each level element are one or more elements named 'option' (of type tdt:Option) and zero or more elements named 'rule' (of type tdt:Rule). -->
 	<xsd:complexType name="Level">

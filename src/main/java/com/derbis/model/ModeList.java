@@ -6,39 +6,39 @@
 //
 
 
-package com.derbis.schema;
+package com.derbis.model;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for InputFormatList.
+ * <p>Java class for ModeList.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="InputFormatList"&gt;
+ * &lt;simpleType name="ModeList"&gt;
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *     &lt;enumeration value="BINARY"/&gt;
- *     &lt;enumeration value="STRING"/&gt;
+ *     &lt;enumeration value="EXTRACT"/&gt;
+ *     &lt;enumeration value="FORMAT"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
  * 
  */
-@XmlType(name = "InputFormatList", namespace = "urn:epcglobal:tdt:xsd:1")
+@XmlType(name = "ModeList", namespace = "urn:epcglobal:tdt:xsd:1")
 @XmlEnum
-public enum InputFormatList {
+public enum ModeList {
 
-    BINARY,
-    STRING;
+    EXTRACT,
+    FORMAT;
 
     public String value() {
         return name();
     }
 
-    public static InputFormatList fromValue(String v) {
+    public static ModeList fromValue(String v) {
         return valueOf(v);
     }
 

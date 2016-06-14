@@ -6,9 +6,8 @@
 //
 
 
-package com.derbis.schema;
+package com.derbis.model;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -19,20 +18,20 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Scheme complex type.
+ * <p>Java class for Option complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Scheme"&gt;
+ * &lt;complexType name="Option"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="level" type="{urn:epcglobal:tdt:xsd:1}Level" maxOccurs="unbounded"/&gt;
+ *         &lt;element name="field" type="{urn:epcglobal:tdt:xsd:1}Field" maxOccurs="unbounded"/&gt;
  *       &lt;/sequence&gt;
- *       &lt;attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *       &lt;attribute name="optionKey" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *       &lt;attribute name="tagLength" type="{http://www.w3.org/2001/XMLSchema}integer" /&gt;
+ *       &lt;attribute name="optionKey" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="pattern" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="grammar" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -41,71 +40,47 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Scheme", namespace = "urn:epcglobal:tdt:xsd:1", propOrder = {
-    "level"
+@XmlType(name = "Option", namespace = "urn:epcglobal:tdt:xsd:1", propOrder = {
+    "field"
 })
-public class Scheme {
+public class Option {
 
     @XmlElement(required = true)
-    protected List<Level> level;
-    @XmlAttribute(name = "name", required = true)
-    protected String name;
-    @XmlAttribute(name = "optionKey")
+    protected List<Field> field;
+    @XmlAttribute(name = "optionKey", required = true)
     protected String optionKey;
-    @XmlAttribute(name = "tagLength")
-    protected BigInteger tagLength;
+    @XmlAttribute(name = "pattern")
+    protected String pattern;
+    @XmlAttribute(name = "grammar", required = true)
+    protected String grammar;
 
     /**
-     * Gets the value of the level property.
+     * Gets the value of the field property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the level property.
+     * This is why there is not a <CODE>set</CODE> method for the field property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getLevel().add(newItem);
+     *    getField().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Level }
+     * {@link Field }
      * 
      * 
      */
-    public List<Level> getLevel() {
-        if (level == null) {
-            level = new ArrayList<Level>();
+    public List<Field> getField() {
+        if (field == null) {
+            field = new ArrayList<Field>();
         }
-        return this.level;
-    }
-
-    /**
-     * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setName(String value) {
-        this.name = value;
+        return this.field;
     }
 
     /**
@@ -133,27 +108,51 @@ public class Scheme {
     }
 
     /**
-     * Gets the value of the tagLength property.
+     * Gets the value of the pattern property.
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link String }
      *     
      */
-    public BigInteger getTagLength() {
-        return tagLength;
+    public String getPattern() {
+        return pattern;
     }
 
     /**
-     * Sets the value of the tagLength property.
+     * Sets the value of the pattern property.
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link String }
      *     
      */
-    public void setTagLength(BigInteger value) {
-        this.tagLength = value;
+    public void setPattern(String value) {
+        this.pattern = value;
+    }
+
+    /**
+     * Gets the value of the grammar property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getGrammar() {
+        return grammar;
+    }
+
+    /**
+     * Sets the value of the grammar property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setGrammar(String value) {
+        this.grammar = value;
     }
 
 }

@@ -6,39 +6,39 @@
 //
 
 
-package com.derbis.schema;
+package com.derbis.model;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for PadDirectionList.
+ * <p>Java class for InputFormatList.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="PadDirectionList"&gt;
+ * &lt;simpleType name="InputFormatList"&gt;
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *     &lt;enumeration value="LEFT"/&gt;
- *     &lt;enumeration value="RIGHT"/&gt;
+ *     &lt;enumeration value="BINARY"/&gt;
+ *     &lt;enumeration value="STRING"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
  * 
  */
-@XmlType(name = "PadDirectionList", namespace = "urn:epcglobal:tdt:xsd:1")
+@XmlType(name = "InputFormatList", namespace = "urn:epcglobal:tdt:xsd:1")
 @XmlEnum
-public enum PadDirectionList {
+public enum InputFormatList {
 
-    LEFT,
-    RIGHT;
+    BINARY,
+    STRING;
 
     public String value() {
         return name();
     }
 
-    public static PadDirectionList fromValue(String v) {
+    public static InputFormatList fromValue(String v) {
         return valueOf(v);
     }
 
