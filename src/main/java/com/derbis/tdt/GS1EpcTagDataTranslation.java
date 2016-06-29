@@ -1,7 +1,9 @@
 package com.derbis.tdt;
 
 import com.derbis.model.EpcTagDataTranslation;
+import com.derbis.model.Scheme;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,14 +34,28 @@ public class GS1EpcTagDataTranslation {
             for (Resource resource : resources) {
                 EpcTagDataTranslation epcTagDataTranslation =
                         xmlMapper.readValue(resource.getInputStream(), EpcTagDataTranslation.class);
-                epcTagDataTranslations.add(epcTagDataTranslation);
-                LOG.info(" {}", resource.getFilename());
+                if (validateEpcTagDataTranslation(epcTagDataTranslation)) {
+                    epcTagDataTranslations.add(epcTagDataTranslation);
+                    LOG.info("loaded {} version {} date {} ",
+                            epcTagDataTranslation.getScheme()
+                                                 .get(0)
+                                                 .getName(),
+                            epcTagDataTranslation.getVersion(),
+                            epcTagDataTranslation.getDate());
+                } else {
+                    LOG.error("invalid tag data translation xml file: {}", resource.getFilename());
+                }
             }
         } catch (IOException e) {
             LOG.error(e.getMessage(), e);
         }
 
         return epcTagDataTranslations;
+    }
+
+    private boolean validateEpcTagDataTranslation(EpcTagDataTranslation epcTagDataTranslation) {
+        List<Scheme> schemes = epcTagDataTranslation.getScheme();
+        return CollectionUtils.isNotEmpty(schemes);
     }
 
     public List<String> getSchemeXMLs() {
