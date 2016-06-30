@@ -7,6 +7,7 @@ public class BaseTranslationTest extends BaseSpringTest {
     public static final String LEGACY = "LEGACY";
 
     public static final String PARAM_LIST = "filter=3;gs1companyprefixlength=7;tagLength=96";
+    public static final String PARAM_LIST_NO_COMPANY = "filter=3;tagLength=96";
 
     public static final String PAGE_13_EPC = "gtin=00037000302414;serial=1041970";
     public static final String PAGE_13_EXPECT_1 = "001100000111010000000010010000100010000000011101100010000100000000000000000011111110011000110010";
