@@ -83,7 +83,7 @@ public class Util {
         if (StringUtils.isNotBlank(minimum)) {
             BigInteger numberToValidate = new BigInteger(number);
             BigInteger minimumValue = new BigInteger(minimum);
-            return numberToValidate.compareTo(minimumValue) > 0;
+            return numberToValidate.compareTo(minimumValue) >= 0;
         } else {
             return true;
         }
@@ -93,7 +93,7 @@ public class Util {
         if (StringUtils.isNotBlank(maximum)) {
             BigInteger numberToValidate = new BigInteger(number);
             BigInteger maximumValue = new BigInteger(maximum);
-            return numberToValidate.compareTo(maximumValue) < 0;
+            return numberToValidate.compareTo(maximumValue) <= 0;
         } else {
             return true;
         }
@@ -113,7 +113,7 @@ public class Util {
         // courtesy of http://codereview.stackexchange.com/questions/126685/calculate-gs1-sscc-upc-check-digit
         int sum = 0;
         for (int i = 0; i < input.length(); ++i) {
-            int n = Integer.parseInt(input.substring(input.length() - 1 - i, 1));
+            int n = Integer.parseInt(StringUtils.substring(input, input.length() - 1 - i, input.length() - i));
             sum += i % 2 == 0 ? n * 3 : n;
         }
         int checksum = sum % 10 == 0 ? 0 : 10 - sum % 10;

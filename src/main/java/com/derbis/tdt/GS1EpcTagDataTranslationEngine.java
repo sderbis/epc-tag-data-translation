@@ -167,12 +167,12 @@ public class GS1EpcTagDataTranslationEngine {
         }
 
         if (inputOption == null) {
-            LOG.error("No matching option found, check input {0} for validness", epcIdentifier);
+            LOG.error("No matching option found, check input {} for validness", epcIdentifier);
             throw new TDTTranslationException("no input option");
         }
 
         // check if all parsing parameters are present
-        if (StringUtils.isNotBlank(inputLevel.getRequiredParsingParameters())) {
+        if (StringUtils.isNotEmpty(inputLevel.getRequiredParsingParameters())) {
             for (String s : Splitter.on(",")
                                     .split(inputLevel.getRequiredParsingParameters())) {
                 if (!parameterMap.containsKey(s)) {
@@ -274,8 +274,7 @@ public class GS1EpcTagDataTranslationEngine {
                 for (Level level : inputScheme.getLevel()) {
                     if (level.getType() == TAG_ENCODING) {
                         for (Option option : level.getOption()) {
-                            if (option.getOptionKey()
-                                      .equals(inputOption.getOptionKey())) {
+                            if (StringUtils.equals(option.getOptionKey(), inputOption.getOptionKey())) {
                                 tagEncodingField = option.getField()
                                                          .get(i - 1);
                                 break;
@@ -284,8 +283,8 @@ public class GS1EpcTagDataTranslationEngine {
                         break;
                     }
                 }
-                final boolean binaryInputFieldPadChar = StringUtils.isNotBlank(inputField.getPadChar());
-                final boolean tagEncodingFieldPadChar = StringUtils.isNotBlank(tagEncodingField.getPadChar());
+                final boolean binaryInputFieldPadChar = StringUtils.isNotEmpty(inputField.getPadChar());
+                final boolean tagEncodingFieldPadChar = StringUtils.isNotEmpty(tagEncodingField.getPadChar());
 
                 if (binaryInputFieldPadChar && tagEncodingFieldPadChar) {
                     LOG.error("padChar defined in both BINARY and TAG_ENCODING");
@@ -351,8 +350,7 @@ public class GS1EpcTagDataTranslationEngine {
             if (level.getType() == outputLevelType) {
                 outputLevel = level;
                 for (Option option : level.getOption()) {
-                    if (option.getOptionKey()
-                              .equals(inputOption.getOptionKey())) {
+                    if (StringUtils.equals(option.getOptionKey(), inputOption.getOptionKey())) {
                         outputOption = option;
                     }
                 }
@@ -404,7 +402,7 @@ public class GS1EpcTagDataTranslationEngine {
             } else {
                 // Perform lookups of each key name in the associative array to substitute the value of each
                 // variable element, substituting the corresponding value in place of the key name.
-                String variableElement = null;
+                String variableElement;
 
                 if ((variableElement = parameterMap.get(grammarToken)) == null) {
                     LOG.error("Undefined field {} (required by output)", grammarToken);
@@ -421,9 +419,9 @@ public class GS1EpcTagDataTranslationEngine {
                     for (Level level : inputScheme.getLevel()) {
                         if (level.getType() == TAG_ENCODING) {
                             for (Option option : level.getOption()) {
-                                if (option.getOptionKey() == inputOption.getOptionKey()) {
+                                if (StringUtils.equals(option.getOptionKey(), inputOption.getOptionKey())) {
                                     for (Field field : option.getField()) {
-                                        if (grammarToken.equals(field.getName())) {
+                                        if (StringUtils.equals(grammarToken, field.getName())) {
                                             tagEncodingField = field;
                                             break;
                                         }
@@ -437,14 +435,14 @@ public class GS1EpcTagDataTranslationEngine {
                     // Corresponding string field in BINARY level
                     Field binaryField = new Field();
                     for (Field field : outputOption.getField()) {
-                        if (grammarToken.equals(field.getName())) {
+                        if (StringUtils.equals(grammarToken, field.getName())) {
                             binaryField = field;
                             break;
                         }
                     }
 
-                    final boolean binaryFieldPadChar = StringUtils.isNotBlank(binaryField.getPadChar());
-                    final boolean tagEncodingFieldPadChar = StringUtils.isNotBlank(tagEncodingField.getPadChar());
+                    final boolean binaryFieldPadChar = StringUtils.isNotEmpty(binaryField.getPadChar());
+                    final boolean tagEncodingFieldPadChar = StringUtils.isNotEmpty(tagEncodingField.getPadChar());
 
                     if (binaryFieldPadChar && tagEncodingFieldPadChar) {
                         LOG.error("padChar defined in both BINARY and TAG_ENCODING");
@@ -472,7 +470,7 @@ public class GS1EpcTagDataTranslationEngine {
                     }
                     StringBuilder bits = new StringBuilder("");
                     // Check for compaction attribute in BINARY level
-                    if (StringUtils.isNotBlank(binaryField.getCompaction())) {
+                    if (StringUtils.isNotEmpty(binaryField.getCompaction())) {
                         int compactionBits = util.getCompactionBits(binaryField);
                         byte[] bytes = variableElement.getBytes();
                         for (byte b : bytes) {
@@ -486,7 +484,7 @@ public class GS1EpcTagDataTranslationEngine {
                         }
                         variableElement = bits.toString();
                     } else {
-                        variableElement = Integer.toBinaryString(Integer.parseInt(variableElement));
+                        variableElement = Long.toBinaryString(Long.parseLong(variableElement));
                     }
                     // Check for bit padding in BINARY level
                     if (LEFT == binaryField.getBitPadDir()) {

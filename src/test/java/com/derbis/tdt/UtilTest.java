@@ -1,11 +1,9 @@
 package com.derbis.tdt;
 
+import com.derbis.BaseSpringTest;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 import java.util.Map;
@@ -14,9 +12,7 @@ import java.util.regex.Pattern;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {Util.class})
-public class UtilTest {
+public class UtilTest extends BaseSpringTest {
     private static String ESCAPED = "%3Cangle bracket%3E%26and100%2F0=%3For100%25";
     private static String NORMAL = "<angle bracket>&and100/0=?or100%";
 
@@ -29,7 +25,7 @@ public class UtilTest {
         assertThat(parameterMap).isNotEmpty();
         assertThat(parameterMap.get("filter")).isEqualTo("3");
         assertThat(parameterMap.get("gs1companyprefixlength")).isEqualTo("7");
-        assertThat(parameterMap.get("tagLength")).isEqualTo("96");
+        assertThat(parameterMap.get("taglength")).isEqualTo("96");
     }
 
     @Test

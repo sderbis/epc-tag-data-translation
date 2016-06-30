@@ -8,6 +8,7 @@
     <Loggers>
         <Logger name="org.apache.log4j.xml" level="info"/>
         <Logger name="org.springframework" level="error"/>
+        <Logger name="com.derbis" level="debug"/>
         <Root level="INFO">
             <AppenderRef ref="STDOUT"/>
         </Root>
