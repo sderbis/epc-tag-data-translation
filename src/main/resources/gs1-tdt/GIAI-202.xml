@@ -106,31 +106,31 @@
 			</option>
 		</level>
 		<level type="LEGACY" prefixMatch="giai=" requiredParsingParameters="gs1companyprefixlength">
-			<option optionKey="12" pattern="giai=([0-9]{12}([!%-?A-Z_a-z\x22]{1,18})" grammar="'giai=' gs1companyprefix indassetref">
+			<option optionKey="12" pattern="giai=([0-9]{12})([!%-?A-Z_a-z\x22]{1,18})" grammar="'giai=' gs1companyprefix indassetref">
 				<field seq="1" decimalMinimum="0" decimalMaximum="999999999999" characterSet="[0-9]*" length="12" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
 				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="11" pattern="giai=([0-9]{11}([!%-?A-Z_a-z\x22]{1,19})" grammar="'giai=' gs1companyprefix indassetref">
+			<option optionKey="11" pattern="giai=([0-9]{11})([!%-?A-Z_a-z\x22]{1,19})" grammar="'giai=' gs1companyprefix indassetref">
 				<field seq="1" decimalMinimum="0" decimalMaximum="99999999999" characterSet="[0-9]*" length="11" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
 				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="10" pattern="giai=([0-9]{10}([!%-?A-Z_a-z\x22]{1,20})" grammar="'giai=' gs1companyprefix indassetref">
+			<option optionKey="10" pattern="giai=([0-9]{10})([!%-?A-Z_a-z\x22]{1,20})" grammar="'giai=' gs1companyprefix indassetref">
 				<field seq="1" decimalMinimum="0" decimalMaximum="9999999999" characterSet="[0-9]*" length="10" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
 				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="9" pattern="giai=([0-9]{9}([!%-?A-Z_a-z\x22]{1,21})" grammar="'giai=' gs1companyprefix indassetref">
+			<option optionKey="9" pattern="giai=([0-9]{9})([!%-?A-Z_a-z\x22]{1,21})" grammar="'giai=' gs1companyprefix indassetref">
 				<field seq="1" decimalMinimum="0" decimalMaximum="999999999" characterSet="[0-9]*" length="9" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
 				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="8" pattern="giai=([0-9]{8}([!%-?A-Z_a-z\x22]{1,22})" grammar="'giai=' gs1companyprefix indassetref">
+			<option optionKey="8" pattern="giai=([0-9]{8})([!%-?A-Z_a-z\x22]{1,22})" grammar="'giai=' gs1companyprefix indassetref">
 				<field seq="1" decimalMinimum="0" decimalMaximum="99999999" characterSet="[0-9]*" length="8" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
 				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="7" pattern="giai=([0-9]{7}([!%-?A-Z_a-z\x22]{1,23})" grammar="'giai=' gs1companyprefix indassetref">
+			<option optionKey="7" pattern="giai=([0-9]{7})([!%-?A-Z_a-z\x22]{1,23})" grammar="'giai=' gs1companyprefix indassetref">
 				<field seq="1" decimalMinimum="0" decimalMaximum="9999999" characterSet="[0-9]*" length="7" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
 				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
-			<option optionKey="6" pattern="giai=([0-9]{6}([!%-?A-Z_a-z\x22]{1,24})" grammar="'giai=' gs1companyprefix indassetref">
+			<option optionKey="6" pattern="giai=([0-9]{6})([!%-?A-Z_a-z\x22]{1,24})" grammar="'giai=' gs1companyprefix indassetref">
 				<field seq="1" decimalMinimum="0" decimalMaximum="999999" characterSet="[0-9]*" length="6" padChar="0" padDir="LEFT" name="gs1companyprefix"/>
 				<field seq="2" characterSet="[!%-?A-Z_a-z\x22]*" name="indassetref"/>
 			</option>
