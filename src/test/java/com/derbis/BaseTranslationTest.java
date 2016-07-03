@@ -5,6 +5,7 @@ public class BaseTranslationTest extends BaseSpringTest {
     public static final String TAG_ENCODING = "TAG_ENCODING";
     public static final String PURE_IDENTITY = "PURE_IDENTITY";
     public static final String LEGACY = "LEGACY";
+    public static final String TEI = "TEI";
 
     public static final String PARAM_LIST = "filter=3;gs1companyprefixlength=7;tagLength=96";
     public static final String PARAM_LIST_NO_COMPANY = "filter=3;tagLength=96";

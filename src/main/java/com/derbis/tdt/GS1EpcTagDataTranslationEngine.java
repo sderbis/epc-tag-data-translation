@@ -484,7 +484,7 @@ public class GS1EpcTagDataTranslationEngine {
                         }
                         variableElement = bits.toString();
                     } else {
-                        variableElement = Long.toBinaryString(Long.parseLong(variableElement));
+                        variableElement = util.longToBinary(variableElement);
                     }
                     // Check for bit padding in BINARY level
                     if (LEFT == binaryField.getBitPadDir()) {

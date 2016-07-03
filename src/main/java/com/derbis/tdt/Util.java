@@ -28,7 +28,9 @@ public class Util {
                                                                  .omitEmptyStrings()
                                                                  .split(s)
                                                                  .iterator();
-                            parameterMap.put(nameValue.next().toLowerCase(), nameValue.next().toLowerCase());
+                            parameterMap.put(nameValue.next()
+                                                      .toLowerCase(), nameValue.next()
+                                                                               .toLowerCase());
                         }
                 );
         return parameterMap;
@@ -129,5 +131,24 @@ public class Util {
             matches.add(StringUtils.trim(matcher.group()));
         }
         return matches;
+    }
+
+    public String hexToBinary(String hex, int binaryDigitLimit) {
+        BigInteger bigInteger = new BigInteger(hex, 16);
+        String binaryString = bigInteger.toString(2);
+        int pad = binaryString.length() % 4;
+        String binaryStringPadded = StringUtils.leftPad(binaryString, binaryString.length() + pad, "0");
+        return binaryDigitLimit > 0 ?
+                StringUtils.substring(binaryStringPadded, 0, binaryDigitLimit) : binaryStringPadded;
+    }
+
+    public String binaryToHex(String binary) {
+        BigInteger bigInteger = new BigInteger(binary, 2);
+        return bigInteger.toString(16)
+                         .toUpperCase();
+    }
+
+    public String longToBinary(String longString) {
+        return StringUtils.isNumeric(longString) ? Long.toBinaryString(Long.parseLong(longString)) : "0";
     }
 }
