@@ -448,8 +448,6 @@ public class GS1EpcTagDataTranslationEngine {
                         LOG.error("padChar defined in both BINARY and TAG_ENCODING");
                         throw new TDTTranslationException("invalid definition");
                     }
-                    // TODO: 6/29/16  check this because in the c# version it is checking the pad dir of the opposite
-                    // see line 512 in TDTengine.cs
                     if (tagEncodingFieldPadChar) {
                         if (tagEncodingField.getPadDir() == LEFT) {
                             variableElement = StringUtils.stripStart(variableElement, tagEncodingField.getPadChar());
