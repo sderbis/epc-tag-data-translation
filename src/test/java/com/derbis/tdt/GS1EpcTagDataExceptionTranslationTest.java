@@ -19,16 +19,9 @@ public class GS1EpcTagDataExceptionTranslationTest extends BaseTranslationTest {
     }
 
     @Test
-    public void testCaseExceptionTDTFieldOutsideCharacterSet() {
-        assertThatThrownBy(() ->
-                engine.translate("gtin=00037000302414;serial=$$", PARAM_LIST, PURE_IDENTITY))
-                .hasMessage("field value does not match character set");
-    }
-
-    @Test
     public void testCaseExceptionTDTUndefinedField() {
         assertThatThrownBy(() ->
-                engine.translate("gtin=00037000302414;serial=1", PARAM_LIST_NO_COMPANY, PURE_IDENTITY))
+                engine.translate("gtin=00037000302414;serial=1", PARAM_LIST_NO_FILTER, BINARY))
                 .hasMessage("undefined field");
     }
 
@@ -43,6 +36,13 @@ public class GS1EpcTagDataExceptionTranslationTest extends BaseTranslationTest {
     public void testCaseExceptionTDTOptionNotFound() {
         assertThatThrownBy(() ->
                 engine.translate("gtin=00037000302414;serial=-1", PARAM_LIST, PURE_IDENTITY))
+                .hasMessage("no input option");
+    }
+
+    @Test
+    public void testCaseExceptionTDTOptionNotFound2() {
+        assertThatThrownBy(() ->
+                engine.translate("gtin=00037000302414;serial=$$", PARAM_LIST, PURE_IDENTITY))
                 .hasMessage("no input option");
     }
 }
