@@ -59,19 +59,18 @@ public class GS1EpcTagDataTranslation {
     }
 
     public List<String> getSchemeXMLs() {
-        List<String> schemas = new ArrayList<>();
+        List<String> schemes = new ArrayList<>();
 
         try {
-            schemas = Arrays.asList(getResources())
+            schemes = Arrays.asList(getResources())
                             .stream()
                             .map(Resource::getFilename)
-                            .collect(Collectors
-                                    .toList());
+                            .collect(Collectors.toList());
         } catch (IOException e) {
             LOG.error(e.getMessage(), e);
         }
 
-        return schemas;
+        return schemes;
     }
 
     private Resource[] getResources() throws IOException {
