@@ -143,6 +143,10 @@ public class Util {
     }
 
     public String binaryToHex(String binary) {
+        if (binary.length() % 16 != 0) {
+            int pad = 16 - binary.length() % 16;
+            binary = StringUtils.rightPad(binary, binary.length() + pad, "0");
+        }
         BigInteger bigInteger = new BigInteger(binary, 2);
         return bigInteger.toString(16)
                          .toUpperCase();
