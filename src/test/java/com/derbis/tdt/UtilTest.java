@@ -94,8 +94,8 @@ public class UtilTest extends BaseSpringTest {
         assertThat(util.hexToBinary("A", 0)).isEqualTo("1010");
         assertThat(util.hexToBinary("a", 0)).isEqualTo("1010");
         assertThat(util.hexToBinary("31105E30A7055F2CC0000000", 0))
-                .isEqualTo
-                        ("001100010001000001011110001100001010011100000101010111110010110011000000000000000000000000000000");
+                .isEqualTo(
+                        "001100010001000001011110001100001010011100000101010111110010110011000000000000000000000000000000");
         assertThat(util.hexToBinary("31105E30A7055F2CC0000000", 20))
                 .isEqualTo("00110001000100000101");
     }

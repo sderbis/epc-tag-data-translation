@@ -73,8 +73,7 @@ public class GS1EpcTagDataTranslationEngine {
                 if (level.getPrefixMatch() == null) {
                     continue;
                 }
-                // If the scheme
-                // element specifies a taglength attribute, then if the value of this attribute does not
+                // If the scheme element specifies a taglength attribute, then if the value of this attribute does not
                 // match the value of the taglength key in the associative array, then this scheme and
                 // level should no longer be considered as a candidate for the inbound representation.
                 if (epcIdentifier.startsWith(level.getPrefixMatch())) {
@@ -99,8 +98,7 @@ public class GS1EpcTagDataTranslationEngine {
 
         LOG.debug("3. DETERMINE THE OPTION THAT MATCHES THE INPUT VALUE");
 
-        // To find the option that matches the input value, consider any scheme+level candidates
-        // from the previous step.
+        // To find the option that matches the input value, consider any scheme+level candidates from the previous step.
         Level inputLevel = null;
         Scheme inputScheme = null;
         Option inputOption = null;
@@ -141,8 +139,7 @@ public class GS1EpcTagDataTranslationEngine {
                 }
 
                 // When a match is found, this option should be considered further and the corresponding
-                // value of the optionKey attribute of the option element should be noted for use in
-                // step 6.
+                // value of the optionKey attribute of the option element should be noted for use in step 6.
                 LOG.info("found a match {}.{}.{}", level.getType(), scheme.getName(), option.getOptionKey());
 
                 // unescape input if Pure Identity or Tag Encoding
