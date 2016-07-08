@@ -1,6 +1,6 @@
 package com.derbis;
 
-public class BaseTranslationTest extends BaseSpringTest {
+public abstract class BaseTranslationTest extends BaseSpringTest {
     public static final String BINARY = "BINARY";
     public static final String TAG_ENCODING = "TAG_ENCODING";
     public static final String PURE_IDENTITY = "PURE_IDENTITY";
