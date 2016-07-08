@@ -102,9 +102,16 @@ public class UtilTest extends BaseSpringTest {
 
     @Test
     public void testBinaryToHex() {
-        assertThat(util.binaryToHex("1010")).isEqualTo("A");
-        assertThat(util.binaryToHex
-                ("001100010001000001011110001100001010011100000101010111110010110011000000000000000000000000000000"))
+        assertThat(util.binaryToHex("1010")).isEqualTo("A000");
+        assertThat(util.binaryToHex(
+                "001100010001000001011110001100001010011100000101010111110010110011000000000000000000000000000000"))
                 .isEqualTo("31105E30A7055F2CC0000000");
+    }
+
+    @Test
+    public void testBinaryToHex2() {
+        assertThat(util.binaryToHex(
+                "00111010001010000000011101011011110011010001010100000010000000000000000000000000000000000110011010010101000101110"))
+                .isEqualTo("3A28075BCD1502000000006695170000");
     }
 }
