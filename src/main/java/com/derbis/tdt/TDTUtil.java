@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 import static com.derbis.model.CompactionMethodList.*;
 
 @Component
-public class Util {
+public class TDTUtil {
 
     public String GRAMMAR_REGEX = "'.*?'|\\s*[\\w]+\\s*";
 

@@ -14,11 +14,11 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public class Rules {
-    private static Logger LOG = LogManager.getLogger(Rules.class);
+public class TDTRules {
+    private static Logger LOG = LogManager.getLogger(TDTRules.class);
 
     @Autowired
-    Util util;
+    TDTUtil util;
 
     public void execute(List<Rule> rules, ModeList mode, Map<String, String> parameterMap)
             throws TDTTranslationException {

@@ -30,10 +30,10 @@ public class GS1EpcTagDataTranslationEngine {
     GS1EpcTagDataTranslation gs1EpcTagDataTranslation;
 
     @Autowired
-    Rules rules;
+    TDTRules rules;
 
     @Autowired
-    Util util;
+    TDTUtil util;
 
     private List<EpcTagDataTranslation> epcTagDataTranslations;
     /**

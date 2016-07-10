@@ -12,7 +12,7 @@ public class GS1EpcTagDataCustomTranslationTest extends BaseTranslationTest {
     GS1EpcTagDataTranslationEngine engine;
 
     @Autowired
-    Util util;
+    TDTUtil util;
 
     private void testTranslationSequence(String epcIdentifier, String parameterList, String hex, int binaryDigitLimit,
                                          String tagEncoding, String pureIdentity, String outputFormat)

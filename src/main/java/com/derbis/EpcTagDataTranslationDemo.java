@@ -2,7 +2,7 @@ package com.derbis;
 
 import com.derbis.tdt.GS1EpcTagDataTranslationEngine;
 import com.derbis.tdt.TDTTranslationException;
-import com.derbis.tdt.Util;
+import com.derbis.tdt.TDTUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class EpcTagDataTranslationDemo implements CommandLineRunner {
     private GS1EpcTagDataTranslationEngine engine;
 
     @Autowired
-    private Util util;
+    private TDTUtil util;
 
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(EpcTagDataTranslationDemo.class);

@@ -17,7 +17,7 @@ public class UtilTest extends BaseSpringTest {
     private static String NORMAL = "<angle bracket>&and100/0=?or100%";
 
     @Autowired
-    Util util;
+    TDTUtil util;
 
     @Test
     public void testParseParameterList() throws Exception {
