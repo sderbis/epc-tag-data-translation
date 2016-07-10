@@ -1,6 +1,8 @@
 package com.derbis.tdt;
 
 import com.derbis.BaseTranslationTest;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import java.util.Random;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GS1EpcTagDataTimingTranslationTest extends BaseTranslationTest {
+    private static final Logger LOG = LogManager.getLogger(GS1EpcTagDataTimingTranslationTest.class);
 
     StopWatch stopWatch;
 
@@ -45,9 +48,9 @@ public class GS1EpcTagDataTimingTranslationTest extends BaseTranslationTest {
             try {
                 String resultBinary = engine.translate(epcIdentifier, PARAM_LIST, BINARY);
                 String resultPureIdentity = engine.translate(resultBinary, PARAM_LIST, PURE_IDENTITY);
-                System.out.println("results: " + resultBinary + " " + resultPureIdentity);
+                LOG.debug("results: {} {}", resultBinary, resultPureIdentity);
             } catch (TDTTranslationException e) {
-                e.printStackTrace();
+                LOG.error(e.getMessage(), e);
             }
         });
         stopWatch.stop();
