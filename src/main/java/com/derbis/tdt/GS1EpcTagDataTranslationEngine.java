@@ -371,12 +371,12 @@ public class GS1EpcTagDataTranslationEngine {
      * elements nested within the option element.
      * <p>
      * Matching of the input value against the regular expression provided in the pattern
-     * attribute of the option element should result in a number of backreference strings being
+     * attribute of the option element should result in a number of back reference strings being
      * extracted. These should be considered as the values for the field elements, where the
      * seq attribute of the field element indicates the sequence in which the fields are extracted
-     * as backreferences, from the start of the input value, e.g. the value from the first
-     * backreference should be considered as the value of the field element with seq="1",
-     * the value of the second backreference is the value of the field element with seq="2".
+     * as back references, from the start of the input value, e.g. the value from the first
+     * back reference should be considered as the value of the field element with seq="1",
+     * the value of the second back reference is the value of the field element with seq="2".
      */
     private void parseInputValue(String epcIdentifier, Level inputLevel, Scheme inputScheme, Option inputOption)
             throws TDTTranslationException {
@@ -411,7 +411,7 @@ public class GS1EpcTagDataTranslationEngine {
             /**
              For each field element, if the compaction attribute is null, treat the field as an
              integer. If the type attribute of the input level was "BINARY", treat the string of 0 and
-             1 characters matched by the regular expression backreference as a binary string and
+             1 characters matched by the regular expression back reference as a binary string and
              convert it to a decimal integer.
              */
             if (inputLevel.getType() == BINARY) {
@@ -445,9 +445,9 @@ public class GS1EpcTagDataTranslationEngine {
                                  During the decode process, each 6-bit segment of the compacted bit string is
                                  analysed.
                                  a. If the first bit is “1”, the bits “00” are added as a prefix before converting
-                                 to values 20 to 3FHEX.
+                                 to values 20 to 3F HEX.
                                  b. If the first bit is “0”, the bits “01” are added as a prefix before converting
-                                 to values 40 to 5FHEX.
+                                 to values 40 to 5F HEX.
                                  */
                                 if (StringUtils.startsWith(character, "1")) {
                                     character = "00" + character;

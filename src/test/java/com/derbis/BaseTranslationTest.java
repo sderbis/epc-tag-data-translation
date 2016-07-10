@@ -11,7 +11,8 @@ public abstract class BaseTranslationTest extends BaseSpringTest {
     public static final String PARAM_LIST_NO_FILTER = "gs1companyprefixlength=7;tagLength=96";
 
     public static final String PAGE_13_EPC = "gtin=00037000302414;serial=1041970";
-    public static final String PAGE_13_EXPECT_1 = "001100000111010000000010010000100010000000011101100010000100000000000000000011111110011000110010";
+    public static final String PAGE_13_EXPECT_1 =
+            "001100000111010000000010010000100010000000011101100010000100000000000000000011111110011000110010";
     public static final String PAGE_13_EXPECT_2 = "urn:epc:tag:sgtin-96:3.0037000.030241.1041970";
     public static final String PAGE_13_EXPECT_3 = "urn:epc:id:sgtin:0037000.030241.1041970";
 

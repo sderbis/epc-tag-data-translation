@@ -66,7 +66,13 @@ public class TDTUtil {
     public int getCompactionBits(Field inputField) {
         int compactionBits = 0;
         if (inputField.getCompaction()
-                      .equals(BIT8.getValue())) {
+                      .equals(BIT32.getValue())) {
+            compactionBits = BIT32.getCompactionBits();
+        } else if (inputField.getCompaction()
+                             .equals(BIT16.getValue())) {
+            compactionBits = BIT16.getCompactionBits();
+        } else if (inputField.getCompaction()
+                             .equals(BIT8.getValue())) {
             compactionBits = BIT8.getCompactionBits();
         } else if (inputField.getCompaction()
                              .equals(BIT7.getValue())) {
