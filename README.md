@@ -8,3 +8,5 @@ This is a Java port of the C# [TagDataTranslation project](https://github.com/da
 * Java 8
 * Maven
 
+### Build Status
+[![Build Status](https://travis-ci.org/sderbis/epc-tag-data-translation.svg?branch=master)](https://travis-ci.org/sderbis/epc-tag-data-translation)
